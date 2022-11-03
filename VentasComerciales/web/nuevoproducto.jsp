@@ -38,20 +38,20 @@
         <div style="margin-left: 38%">
             <form action="/VentasComerciales/NuevoProducto" method="post">
             <br><br>
-            <label for="referencia">Referencia</label>
-            <input type="text" minlength="6" maxlength="6" name="referencia"/>
+            <label for="referencia">Referencia  </label>
+            <input type="text" minlength="6" maxlength="6" name="referencia" required/>
             <br><br>
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre"/>
+            <input type="text" name="nombre" required/>
             <br><br>
             <label for="descripcion">Descripcion</label>
-            <input type="text" name="descripcion"/>
+            <input type="text" name="descripcion" required/>
             <br><br>
             <label for="precio">Precio</label>
-            <input type="text" name="precio"/>
+            <input type="number" name="precio" required/>
             <br><br>
             <label for="descuento">Descuento</label>
-            <input type="text" name="descuento"/>
+            <input type="text" name="descuento" pattern="[0-9]" required/>
             <br><br>
             <input type="submit" value="aceptar"/>
             <input type="reset" value="cancelar"/>
