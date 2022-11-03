@@ -69,17 +69,18 @@ public class controlador extends HttpServlet {
        String Usuario = request.getParameter("usuario");
        String Clave = request.getParameter("Clave");
        
-       //String sql = "SELECT * FROM 'usuario' WHERE usuario='"+Usuario+"' AND password='"+Clave+"'";
+       
        String sql="SELECT * FROM `usuario` WHERE usuario='"+Usuario+"' AND password='"+Clave+"'";
        usuarios datousuario=connection.DB.consultaDatos(sql);
        
-       if(datousuario.getUsuario().equals(Usuario)&&datousuario.getClave().equals(Clave)){
+       if(datousuario==null){
            
-           request.getRequestDispatcher("inicio.jsp").forward(request, response);
-           
-            } else{
-            
             request.getRequestDispatcher("indexerror.html").forward(request, response);
+           
+            } else if(datousuario.getUsuario().equals(Usuario)&&datousuario.getClave().equals(Clave)){
+                
+            request.getRequestDispatcher("inicio.jsp").forward(request, response);
+           
            
            
            
