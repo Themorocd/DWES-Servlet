@@ -39,7 +39,7 @@
             <form action="/VentasComerciales/NuevoProducto" method="post">
             <br><br>
             <label for="referencia">Referencia  </label>
-            <input type="text" minlength="6" maxlength="6" name="referencia" required/>
+            <input type="text" minlength="1" maxlength="6" name="referencia" required/>
             <br><br>
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" required/>
