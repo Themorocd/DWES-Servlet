@@ -8,6 +8,14 @@
         <servlet-name>NuevaVenta</servlet-name>
         <servlet-class>controlador.NuevaVenta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NuevoProducto</servlet-name>
+        <servlet-class>controlador.NuevoProducto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ModificoProducto</servlet-name>
+        <servlet-class>controlador.ModificoProducto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controlador</servlet-name>
         <url-pattern>/controlador</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>NuevaVenta</servlet-name>
         <url-pattern>/NuevaVenta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NuevoProducto</servlet-name>
+        <url-pattern>/NuevoProducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificoProducto</servlet-name>
+        <url-pattern>/ModificoProducto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

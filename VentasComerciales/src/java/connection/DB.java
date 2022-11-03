@@ -30,6 +30,7 @@ public class DB {
         String sql = "SELECT * FROM productos where referencia='" + referencia + "'";
 
         Connection cnn = null;
+        
         try {
 
             cnn = CrearConexion();
@@ -40,7 +41,6 @@ public class DB {
             while (rs.next()) {
 
                 producto = new Producto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getShort(5));
-
                 listaProducto.add(producto);
 
             }
@@ -244,5 +244,53 @@ public class DB {
         return usuario;
 
     }
+
+    public static void insertarProducto(Producto producto) {
+        String sql = "INSERT INTO productos VALUES (?,?,?,?,?)";
+
+        Connection cnn = null;
+
+        cnn = CrearConexion();
+
+        try {
+            PreparedStatement pst = (PreparedStatement) cnn.prepareStatement(sql);
+
+            pst.setString(1, producto.getReferencia());
+            pst.setString(2, producto.getNombre());
+            pst.setString(3, producto.getDescripcion());
+            pst.setDouble(4, producto.getPrecio());
+            pst.setInt(5, producto.getDescuento());
+
+            pst.executeUpdate();
+            pst = null;
+
+        } catch (SQLException ex) {
+
+        }
+    }
+
+    public static int ModificarProducto(Producto producto) {
+        
+        int correcto = 0;
+        
+        String sql = "UPDATE productos SET nombre='" + producto.getNombre() + "',descripcion='" + producto.getDescripcion() + "', "
+                + "precio='" + producto.getPrecio() + "', descuento='" + producto.getDescuento() + "'"
+                + "WHERE referencia='" + producto.getReferencia() + "'";
+       
+        
+        Connection cnn = null;
+
+        cnn = CrearConexion();
+        try {
+         PreparedStatement pst = (PreparedStatement) cnn.prepareStatement(sql);
+
+           correcto= pst.executeUpdate();
+            pst = null;
+         } catch (SQLException ex) {
+
+        }
+        return correcto;
+    }
+    
     
 }
