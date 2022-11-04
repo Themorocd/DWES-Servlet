@@ -103,6 +103,7 @@ public class DB {
         Connection cnn = null;
         try {
             cnn = CrearConexion();
+            
             String sql = "SELECT comerciales.nombre,productos.nombre,ventas.cantidad,productos.precio,"
                     + "(ventas.cantidad*productos.precio),productos.descuento,"
                     + "((ventas.cantidad*productos.precio)-((ventas.cantidad*productos.precio)*(productos.descuento/100))),"
@@ -141,7 +142,7 @@ public class DB {
 
         ArrayList<comerciales> listaComercial = new ArrayList<comerciales>();
 
-        String sql = "SELECT codigo, nombre FROM comerciales";
+        String sql = "SELECT codigo, nombre, salario, hijos FROM comerciales";
 
         Connection cnn = null;
         try {
@@ -153,7 +154,7 @@ public class DB {
 
             while (rs.next()) {
 
-                comercial = new comerciales(rs.getString(1), rs.getString(2));
+                comercial = new comerciales(rs.getString(1), rs.getString(2), rs.getDouble(3),rs.getInt(4));
 
                 listaComercial.add(comercial);
 
@@ -290,6 +291,32 @@ public class DB {
 
         }
         return correcto;
+    }
+
+    public static void altaComercial(comerciales comercial) {
+        String sql = "INSERT INTO comerciales VALUES (?,?,?,?,?)";
+
+        Connection cnn = null;
+
+        cnn = CrearConexion();
+
+        try {
+            PreparedStatement pst = (PreparedStatement) cnn.prepareStatement(sql);
+
+            pst.setString(1, comercial.getCodigo());
+            pst.setString(2, comercial.getNombre());
+            pst.setDouble(3, comercial.getSalario());
+            pst.setInt(4, comercial.getHijos());
+            pst.setString(5, comercial.getFecha());
+            
+            
+
+            pst.executeUpdate();
+            pst = null;
+
+        } catch (SQLException ex) {
+
+        }
     }
     
     

@@ -16,6 +16,10 @@
         <servlet-name>ModificoProducto</servlet-name>
         <servlet-class>controlador.ModificoProducto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AltaComercial</servlet-name>
+        <servlet-class>controlador.AltaComercial</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controlador</servlet-name>
         <url-pattern>/controlador</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ModificoProducto</servlet-name>
         <url-pattern>/ModificoProducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AltaComercial</servlet-name>
+        <url-pattern>/AltaComercial</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -16,14 +16,14 @@ public class comerciales {
     private String nombre;
     private double salario;
     private int hijos;
-    private java.sql.Date fechaNacimiento;
+    private String fecha;
 
-    public comerciales(String codigo, String nombre, double salario, int hijos, Date fechaNacimiento) {
+    public comerciales(String codigo, String nombre, double salario, int hijos, String fecha) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.salario = salario;
         this.hijos = hijos;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fecha = fecha;
     }
 
     public comerciales(String codigo, String nombre) {
@@ -76,12 +76,12 @@ public class comerciales {
         this.hijos = hijos;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
     
     
